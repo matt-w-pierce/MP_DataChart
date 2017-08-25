@@ -37,10 +37,18 @@ public class DataSelectActivity extends AppCompatActivity {
 
     }
 
+    private int connectDatasets() {
+        // This is where you can create all of your datasets
+    }
+
+    private void initializeView() {
+        // Do something to initialize the view here
+    }
+
     // Custom list adapter that uses custom list cell to display data
-    // Is updated every time a new device is found, which is added to the list
-    private class DeviceListAdapter extends ArrayAdapter<DatasetConnection> {
-        DeviceListAdapter()
+    // Is shows all of the connected datasets and allows the user to choose one or multiple
+    private class DatasetListAdapter extends ArrayAdapter<DatasetConnection> {
+        DatasetListAdapter()
         {
             super(DataSelectActivity.this, R.layout.cell_main_device, connections);
         }
