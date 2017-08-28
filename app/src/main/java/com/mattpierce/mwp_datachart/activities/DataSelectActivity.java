@@ -5,10 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.mattpierce.mwp_datachart.R;
 import com.mattpierce.mwp_datachart.objects.DatasetConnection;
+import com.mattpierce.mwp_datachart.objects.DatasetMapping;
+
+import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -23,6 +27,10 @@ public class DataSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_select);
 
+        adapter = new DatasetListAdapter();
+        ListView listView = (ListView) findViewById(R.id.list);
+        listView.setAdapter(adapter);
+
         // Initialize the view
         // Connect to datasets
         // Display a list of datasets
@@ -34,11 +42,20 @@ public class DataSelectActivity extends AppCompatActivity {
 
         // TODO: Write connectDatasets function. Should include createDataMappings
         numConnections = connectDatasets();
-
     }
 
     private int connectDatasets() {
         // This is where you can create all of your datasets
+        // TODO: First, create the data mappings for the data connections
+        DatasetMapping datasetMapping = new DatasetMapping("xValue", "yValue");
+
+        // TODO: Second, create the dataset connections using the created mappings
+        DatasetConnection datasetConnection = new DatasetConnection(datasetMapping, "www.helloworld.com", DatasetConnection.API_JSON_CONNECTION);
+
+        // TODO: Third, add all of the database connections to the Array
+        connections.add(datasetConnection);
+
+        return connections.size();
     }
 
     private void initializeView() {
@@ -50,34 +67,25 @@ public class DataSelectActivity extends AppCompatActivity {
     private class DatasetListAdapter extends ArrayAdapter<DatasetConnection> {
         DatasetListAdapter()
         {
-            super(DataSelectActivity.this, R.layout.cell_main_device, connections);
+            super(DataSelectActivity.this, R.layout.cell_dataselect_activity, connections);
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View itemView = convertView;
             if (itemView == null) {
-                itemView = getLayoutInflater().inflate(R.layout.cell_main_device, parent, false);
+                itemView = getLayoutInflater().inflate(R.layout.cell_dataselect_activity, parent, false);
             }
 
-            /*
-            // Find the object to work with
-            BluetoothDevice currentDevice = devices.get(position);
+            DatasetConnection currentConn = connections.get(position);
 
-            TextView nameText = (TextView) itemView.findViewById(R.id.deviceName);
-            final String deviceName = currentDevice.getName();
-            if (deviceName != null && deviceName.length() > 0)
-                nameText.setText(deviceName);
-            else
-                nameText.setText(R.string.unknown_device);
+            TextView urlText = (TextView) itemView.findViewById(R.id.url_connection);
+            TextView xValueText = (TextView) itemView.findViewById(R.id.xValue_string);
+            TextView yValueText = (TextView) itemView.findViewById(R.id.yValue_string);
 
-            TextView addressText = (TextView) itemView.findViewById(R.id.deviceAddress);
-            addressText.setText(currentDevice.getAddress());
-
-            // CheckBox box = (CheckBox) itemView.findViewById(R.id.device_checkBox);
-            // box.setClickable(false);
-            // box.setChecked(false);
-            */
+            urlText.setText(currentConn.getJsonDataSource());
+            xValueText.setText(currentConn.getDatasetMapping().getFieldForX());
+            yValueText.setText(currentConn.getDatasetMapping().getFieldForY());
 
             return itemView;
         }

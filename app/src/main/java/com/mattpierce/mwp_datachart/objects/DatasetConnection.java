@@ -17,8 +17,8 @@ import java.util.ArrayList;
 
 public class DatasetConnection {
 
-    public final int RAW_JSON_CONNECTION = 0;
-    public final int API_JSON_CONNECTION = 1;
+    public static final int RAW_JSON_CONNECTION = 0;
+    public static final int API_JSON_CONNECTION = 1;
 
     private DatasetMapping datasetMapping;
     private String jsonDataSource;
