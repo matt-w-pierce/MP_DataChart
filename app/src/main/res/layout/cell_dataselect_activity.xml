@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Connection Address: " />
+
+    <TextView
+        android:id="@+id/url_connection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="url_text"
+        android:layout_toRightOf="@id/textView"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="X-Value Field: "
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/xValue_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="x-value field name"
+        android:layout_below="@+id/textView"
+        android:layout_toRightOf="@id/textView2"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Y-Value Field: "
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/yValue_string"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="y-value field name"
+        android:layout_below="@+id/textView2"
+        android:layout_toRightOf="@id/textView3"/>
+
+</RelativeLayout>
