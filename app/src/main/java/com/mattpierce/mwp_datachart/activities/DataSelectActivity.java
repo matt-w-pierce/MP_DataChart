@@ -36,6 +36,7 @@ public class DataSelectActivity extends AppCompatActivity {
         // Display a list of datasets
         // When datasets are selected, add them to a list to pass to graph activity
         // When "Next"is clicked, pass onto the graph activity
+        // TODO: Make it so that they can also select a file that is saved locally on their device
 
         adapter = new DatasetListAdapter();
         ListView list = (ListView) findViewById(android.R.id.list);
