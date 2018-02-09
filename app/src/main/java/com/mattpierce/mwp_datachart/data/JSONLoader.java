@@ -2,6 +2,7 @@ package com.mattpierce.mwp_datachart.data;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -11,7 +12,7 @@ import java.util.Scanner;
  * Created by mattpierce on 8/23/17.
  */
 
-public class JSONLoader {
+public class JSONLoader implements Serializable {
     static String response = null;
     public final static int GET = 1;
     public final static int POST = 2;

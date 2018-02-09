@@ -9,13 +9,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by mattpierce on 8/23/17.
  */
 
-public class DatasetConnection {
+public class DatasetConnection implements Serializable {
 
     public static final int RAW_JSON_CONNECTION = 0;
     public static final int API_JSON_CONNECTION = 1;

@@ -1,10 +1,12 @@
 package com.mattpierce.mwp_datachart.objects;
 
+import java.io.Serializable;
+
 /**
  * Created by mattpierce on 8/23/17.
  */
 
-public class DatasetMapping {
+public class DatasetMapping implements Serializable {
 
     private String fieldForX;
     private String fieldForY;

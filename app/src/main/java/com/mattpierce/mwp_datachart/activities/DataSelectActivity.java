@@ -19,8 +19,6 @@ import com.mattpierce.mwp_datachart.R;
 import com.mattpierce.mwp_datachart.objects.DatasetConnection;
 import com.mattpierce.mwp_datachart.objects.DatasetMapping;
 
-import org.w3c.dom.Text;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
