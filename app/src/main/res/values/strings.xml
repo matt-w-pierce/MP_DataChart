@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">MWP_DataChart</string>
+
+    <string name="menu_next">Next</string>
+
+    <string name="connections_extra_name">connection_list</string>
+
+    <string name="no_devices_dialog_title">No Devices Selected</string>
+    <string name="no_devices_dialog_body">You have not selected any devices to monitor. Please select at least one device before continuing.</string>
+
 </resources>
