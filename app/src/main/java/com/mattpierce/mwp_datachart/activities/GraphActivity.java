@@ -1,13 +1,19 @@
 package com.mattpierce.mwp_datachart.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RelativeLayout;
 import android.widget.Toolbar;
 
 import com.mattpierce.mwp_datachart.R;
+import com.mattpierce.mwp_datachart.objects.DatasetConnection;
+
+import java.util.List;
 
 public class GraphActivity extends AppCompatActivity {
+
+    private List<DatasetConnection> datasets;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,18 @@ public class GraphActivity extends AppCompatActivity {
                 a. Allows for the scaling of the graph, both x and y-axis
                 b. Be able to turn on/off any of the included datasets
         */
-                
+
+        // Reading in the validated datasets that were passed from previous
+        final Intent intent = getIntent();
+        datasets = (List<DatasetConnection>) intent.getSerializableExtra(getString(R.string.connections_extra_name));
+
+        initializeGraph();
+
+        // TODO: Read in the data from the dataset connections
+
+    }
+
+    private void initializeGraph() {
+        // TODO: Initialize charts
     }
 }
